@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-01-11 21:40:20
+ * @LastEditTime: 2021-01-11 22:06:59
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /03-04-study-materials/Users/luoqin/work/fe-luo/lagou/fe-task/fed-e-task-03-04/code/my-gridsome-site/gridsome.server.js
+ */
   
 // Server API makes it possible to hook into various parts of Gridsome
 // on server-side and add custom data to the GraphQL data layer.
@@ -47,7 +55,7 @@ async function getFollowers (actions) {
 }
 
 async function getUser (actions) {
-  const collection = actions.addCollection('user')
+  const collection = actions.addCollection('User')
   const { data } = await axios.get(`${apiUrl}/users/${githubUsername}${tokenParam}`)
   if (data) {
     collection.addNode(data)
@@ -69,7 +77,7 @@ async function getPosts (actions) {
   const { data: userPost } = await axios.get(`${apiUrl}/users/${githubUsername}/gists${tokenParam}`)
   userPost.reverse()
   for (let item of userPost) {
-    let { data: detailsPost } = await axios.get(`${apiUrl}/users/${githubUsername}/gists/${item.id}${tokenParam}`)
+    let { data: detailsPost } = await axios.get(`${apiUrl}/gists/${item.id}${tokenParam}`)
     const key = Object.keys(detailsPost.files)[0]
     collection.addNode({
       id: item.id,

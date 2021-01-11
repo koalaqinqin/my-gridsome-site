@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-11 21:40:20
+ * @LastEditTime: 2021-01-12 00:23:09
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /03-04-study-materials/Users/luoqin/work/fe-luo/lagou/fe-task/fed-e-task-03-04/code/my-gridsome-site/src/components/Sidebar.vue
+-->
 <template>
     <div>
         <el-card shadow="never">
@@ -28,8 +36,20 @@
         <token-dialog ref="tokenDialog"></token-dialog>
     </div>
 </template>
+<static-query>
+query {
+    allConfig {
+        edges {
+            node {
+                token
+                mini
+            }
+        }
+    }
+  }
+</static-query>
 <script>
-    import { constantRouterMap } from '~/router'
+    import { constantRouterMap } from '~/router.js'
     import TokenDialog from '~/components/TokenDialog'
     export default {
         components: {
@@ -46,6 +66,14 @@
         mounted() {
             let arr = this.$route.path.split("/")
             this.active = "/" + arr[1] + "/" + arr[2]
+        },
+        computed: {
+            token() {
+                return this.$static.allConfig.edges[0].node.token
+            },
+            mini() {
+                return this.$static.allConfig.edges[0].node.mini
+            }
         },
         methods: {
             onSelect(index) {

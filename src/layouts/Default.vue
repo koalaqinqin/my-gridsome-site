@@ -14,7 +14,7 @@
             <h1 class="project-name">{{config.blogTitle}}</h1>
             <h2 class="project-tagline">{{config.blogDescribe}}</h2>
             <a :href="'https://github.com/'+ config.githubUsername" class="btn" target="_blank">GitHub主页</a>
-            <a href="https://github.com/GitHub-Laziji/vblog" class="btn" target="_blank" v-if="!config.mini">博客源码</a>
+            <a href="https://github.com/koalaqinqin/my-gridsome-site" class="btn" target="_blank" v-if="!config.mini">博客源码</a>
         </section>
         <div style="position:relative;  z-index:2;margin: auto;margin-top:-30px;width:64rem;">
             <el-card shadow="never" :body-style="{ padding: '0px' }">
@@ -54,7 +54,7 @@
                             </el-col>
                         </el-row>
 
-                        <audio ref="music" loop autoplay v-if="audioAutoPlay">
+                        <audio ref="music" loop autoplay v-if="config.audioAutoPlay">
                             <source :src="config.audioUrl" type="audio/mpeg">
                         </audio>
                         <audio ref="music" loop v-else>
@@ -71,14 +71,14 @@
                         </div>
                     </el-col>
                     <el-col :span="2" style="text-align: center;">
-                        <img v-popover:bigAvatar :src="user.avatarUrl" style="margin-top: 4px;margin-right: 10px;width:52px; height:52px; border-radius:5px; border: 1px solid #EBEEF5"
+                        <img v-popover:bigAvatar :src="user.avatar_url" style="margin-top: 4px;margin-right: 10px;width:52px; height:52px; border-radius:5px; border: 1px solid #EBEEF5"
                         />
                         <el-popover ref="bigAvatar" placement="top-start" :title="config.githubUsername" width="200" trigger="hover">
                             <i class="el-icon-star-on"></i>&emsp;{{user.name}}
                             <br>
                             <i class="el-icon-location"></i>&emsp;{{user.location}}
                             <br>
-                            <img :src="user.avatarUrl" style="width: 200px;height: 200px;">
+                            <img :src="user.avatar_url" style="width: 200px;height: 200px;">
                         </el-popover>
                     </el-col>
                 </el-row>
@@ -133,6 +133,7 @@ query {
         blog
         avatar_url
         name
+        location
       }
     }
   }

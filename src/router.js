@@ -1,6 +1,6 @@
 export const constantRouterMap = [
   {
-      path: '/',
+      path: '/news',
       redirect: '/user/new/main',
       meta: {
           type: "user",
@@ -34,7 +34,7 @@ export const constantRouterMap = [
       ]
   },
   {
-      path: '/blog',
+      path: '/',
       redirect: '/user/blog/main',
       meta: {
           type: "user",
