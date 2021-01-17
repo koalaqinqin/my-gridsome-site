@@ -14,9 +14,11 @@
                         <el-row>
                             <el-col :span="16">
                                 <span>
-                                    <a style="text-decoration:none;cursor:pointer" @click="goDetails(item.node.id)">
+                                    <g-link
+                                        :to="'/detail/' + item.node.id"
+                                        style="text-decoration:none;cursor:pointer">
                                         <i class="el-icon-edit-outline"></i>&nbsp;&nbsp; {{item.node.title}}
-                                    </a>
+                                    </g-link>
                                 </span>
                             </el-col>
                             <el-col :span="8">
@@ -29,7 +31,7 @@
                         </el-row>
                     </div>
                     <div style="font-size: 0.9rem;line-height: 1.5;color: #606c71;">
-                        最近更新 {{item.node.updateTime}}
+                        最近更新 {{item.node.updated_at}}
                     </div>
                     <div style="font-size: 1.1rem;line-height: 1.5;color: #303133;padding: 10px 0px 0px 0px">
                         {{item.node.description}}
@@ -124,9 +126,6 @@ query($page: Int) {
             goAdd() {
                 this.$router.push('/user/blog/add')
             },
-            goDetails(id) {
-                this.$router.push("/user/blog/details/" + id)
-            }
         }
     }
 </script>
