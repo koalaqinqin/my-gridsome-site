@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-01-11 21:40:20
- * @LastEditTime: 2021-01-19 00:26:06
+ * @LastEditTime: 2021-01-19 00:27:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /03-04-study-materials/Users/luoqin/work/fe-luo/lagou/fe-task/fed-e-task-03-04/code/my-gridsome-site/README.md
@@ -23,7 +23,7 @@ This is the project you get when you run `gridsome create new-project`.
 
 ### 发布笔记
 
-在自己的服务器(http://106.75.164.93/)上：
+在自己的服务器http://106.75.164.93/
 
 1. 在服务器上用 yum 安装了 httpd
 2. 对项目执行 gridsome build，打包生成 dist
