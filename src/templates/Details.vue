@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-01-12 00:29:03
- * @LastEditTime: 2021-01-17 16:57:31
+ * @LastEditTime: 2021-01-19 00:17:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /03-04-study-materials/Users/luoqin/work/fe-luo/lagou/fe-task/fed-e-task-03-04/code/my-gridsome-site/src/templates/Blogs/Detail.vue
@@ -35,7 +35,7 @@
     </Layout>
 </template> 
 <page-query>
-query ($id: String) {
+query ($id: ID) {
     allConfig {
         edges {
             node {
